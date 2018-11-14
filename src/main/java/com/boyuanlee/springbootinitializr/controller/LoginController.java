@@ -11,12 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author longman921414@hotmail.com
  * @date 2018/8/14 16:48
  */
-@Controller
+//@Controller
 public class LoginController {
 
 	@RequestMapping("/index")
 	public String index() {
-		return "login";
+		return "index";
+	}
+
+	@RequestMapping("/")
+	public String index2() {
+		return "index";
 	}
 
 	@RequestMapping("/login")

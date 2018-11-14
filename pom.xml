@@ -67,21 +67,6 @@
             <version>1.11</version>
         </dependency>
 
-        <!-- retrofit 网络请求 -->
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>retrofit</artifactId>
-            <version>2.4.0</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.ligboy.retrofit2/converter-fastjson -->
-        <!-- 如下是fastJson的convert，如果发现不可用，可以考虑重写-->
-        <dependency>
-            <groupId>org.ligboy.retrofit2</groupId>
-            <artifactId>converter-fastjson</artifactId>
-            <version>2.1.0</version>
-        </dependency>
-
         <!-- fastJson config -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -129,6 +114,7 @@
             <!--<version>3.3.7</version>-->
         </dependency>
 
+        <!--Hot Swapping-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
