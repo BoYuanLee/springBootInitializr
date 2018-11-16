@@ -22,8 +22,12 @@ import java.util.Objects;
 @Component
 public class UserDetailsServiceImpl implements SmsUserDetailsService, UserDetailsService {
 
+	private final UserDao userDao;
+
 	@Autowired
-	private UserDao userDao;
+	public UserDetailsServiceImpl(UserDao userDao) {
+		this.userDao = userDao;
+	}
 
 	@Override
 	public SmsUserDetails loadUserByTelCode(String tel, String code) {
@@ -40,7 +44,11 @@ public class UserDetailsServiceImpl implements SmsUserDetailsService, UserDetail
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return null;
+		User user = userDao.getUserByName(username);
+		if (Objects.isNull(user)) {
+			throw new UsernameNotFoundException("用户名不存在");
+		}
+		return user;
 	}
 
 	/*

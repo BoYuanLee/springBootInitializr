@@ -23,6 +23,10 @@ public class CacheService {
 
 	private final CacheManager cacheManager;
 
+	/**
+	 * 默认存在一个cacheManager
+	 * @param cacheManager
+	 */
 	@Autowired
 	public CacheService(CacheManager cacheManager) {
 		this.cacheManager = cacheManager;

@@ -1,57 +1,12 @@
-/* input[type="password"] {
-  color: transparent;
-} */
-
-
-
-/*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-@font-face {
-  font-family: Poppins-Regular;
-  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Medium;
-  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-Bold;
-  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
-}
-
-@font-face {
-  font-family: Poppins-SemiBold;
-  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
-}
-
-/*//////////////////////////////////////////////////////////////////
-[ RESTYLE TAG ]*/
-
 * {
-	margin: 0px; 
-	padding: 0px; 
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 }
 
 body, html {
 	height: 100%;
 	font-family: Poppins-Regular, sans-serif;
-}
-
-/*---------------------------------------------*/
-a {
-	font-family: Poppins-Regular;
-	font-size: 14px;
-	line-height: 1.7;
-	color: #666666;
-	margin: 0px;
-	transition: all 0.4s;
-	-webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
 }
 
 a:focus {
@@ -64,21 +19,15 @@ a:hover {
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
-	margin: 0px;
-}
+/*h1,h2,h3,h4,h5,h6 {
+	margin: 0;
+}*/
 
 p {
-	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
-	margin: 0px;
-}
-
-ul, li {
-	margin: 0px;
-	list-style-type: none;
+	margin: 0;
 }
 
 
@@ -88,35 +37,11 @@ input {
 	border: none;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: none;
-    -webkit-appearance: none;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-textarea {
-  outline: none;
-  border: none;
-}
-
-textarea:focus, input:focus {
-  border-color: transparent !important;
-}
-
 input:focus::-webkit-input-placeholder { color:transparent; }
 input:focus:-moz-placeholder { color:transparent; }
 input:focus::-moz-placeholder { color:transparent; }
 input:focus:-ms-input-placeholder { color:transparent; }
 
-textarea:focus::-webkit-input-placeholder { color:transparent; }
-textarea:focus:-moz-placeholder { color:transparent; }
-textarea:focus::-moz-placeholder { color:transparent; }
-textarea:focus:-ms-input-placeholder { color:transparent; }
 
 input::-webkit-input-placeholder {color: #999999;}
 input:-moz-placeholder {color: #999999;}
@@ -144,22 +69,11 @@ button:hover {
 	cursor: pointer;
 }
 
-iframe {
-	border: none !important;
-}
-
-
-/*//////////////////////////////////////////////////////////////////
-[ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
   font-size: 13px;
   line-height: 1.4;
   color: #999999;
 }
-
-/*//////////////////////////////////////////////////////////////////
-[ login ]*/
 
 .limiter {
   width: 100%;
@@ -205,15 +119,13 @@ iframe {
   flex-direction: column;
   align-items: center;
 
-  background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background: no-repeat center;
 
   padding: 70px 15px 74px 15px;
 }
 
 .login100-form-title-1 {
-  font-family: Poppins-Bold;
   font-size: 30px;
   color: #fff;
   text-transform: uppercase;
@@ -260,7 +172,6 @@ iframe {
 }
 
 .label-input100 {
-  font-family: Poppins-Regular;
   font-size: 15px;
   color: #808080;
   line-height: 1.2;
@@ -275,7 +186,6 @@ iframe {
 
 /*---------------------------------------------*/
 .input100 {
-  font-family: Poppins-Regular;
   font-size: 15px;
   color: #555555;
   line-height: 1.2;
@@ -336,7 +246,6 @@ input.input100 {
 }
 
 .label-checkbox100 {
-  font-family: Poppins-Regular;
   font-size: 13px;
   color: #999999;
   line-height: 1.4;
@@ -349,7 +258,6 @@ input.input100 {
 
 .label-checkbox100::before {
   content: "\f00c";
-  font-family: FontAwesome;
   font-size: 13px;
   color: transparent;
 
@@ -404,8 +312,6 @@ input.input100 {
   height: 50px;
   background-color: #57b846;
   border-radius: 25px;
-
-  font-family: Poppins-Regular;
   font-size: 16px;
   color: #fff;
   line-height: 1.2;
@@ -469,8 +375,6 @@ input.input100 {
   transform: translateY(-50%);
   right: 2px;
   pointer-events: none;
-
-  font-family: Poppins-Medium;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;
@@ -487,7 +391,6 @@ input.input100 {
 
 .alert-validate::after {
   content: "\f06a";
-  font-family: FontAwesome;
   display: block;
   position: absolute;
   color: #c80000;

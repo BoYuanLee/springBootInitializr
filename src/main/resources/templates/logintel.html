@@ -13,9 +13,9 @@
     <link rel="stylesheet" type="text/css" href="webjars/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="webjars/animate.css/animate.css"/>
 
-    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}" href="../../css/login.css"/>
 
-    <link rel="stylesheet" th:href="@{/css/tools.css}"/>
+    <link rel="stylesheet" th:href="@{/css/tools.css}" href="../../css/loginUtil.css"/>
 </head>
 <body>
 
@@ -28,16 +28,16 @@
 					</span>
             </div>
 
-            <form class="login100-form validate-form" th:action="@{/login}" method="post">
+            <form class="login100-form validate-form" th:action="@{/login/tel}" method="post">
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">账号</span>
-                    <input class="input100" type="text" name="username" id="username" placeholder="Enter username">
+                    <input class="input100" type="text" name="tel" id="tel" placeholder="Enter username">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
                     <span class="label-input100">密码</span>
-                    <input class="input100" type="password" name="password" id="password" placeholder="Enter password">
+                    <input class="input100" type="password" name="code" id="code" placeholder="Enter password">
                     <span class="focus-input100"></span>
                 </div>
 
@@ -45,7 +45,7 @@
                     <div class="contact100-form-checkbox">
                         <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
                         <label class="label-checkbox100" for="ckb1">
-                            Remember me
+                            手机验证码登录
                         </label>
                     </div>
 

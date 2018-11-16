@@ -5,9 +5,11 @@
 package com.boyuanlee.springbootinitializr.configure;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.caffeine.CaffeineCache;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import java.time.Duration;
 import java.util.logging.Logger;
@@ -17,19 +19,22 @@ import java.util.logging.Logger;
  * @date 2018/11/13 17:56
  */
 @Configuration
+@PropertySource("classpath:cache.properties")
 public class CacheConfig {
 
+	private static String cachePermanentName;
 
-	private static final Logger logger = Logger.getLogger(CacheConfig.class.getName());
+	private static long cachePermanentExpireAfterWrite;
 
-	/**
-	 * 非持久缓存，短时间保存，会在某个时间点之后过期
-	 */
-	@Bean
-	public CaffeineCache cacheImpermanent() {
-		logger.info("cacheImpermanent *****");
-		return buildCache("cacheImpermanent", 1000, Duration.ofMinutes(30));
-	}
+	private static int cachePermanentInitialCapacity;
+
+	private static String cacheImpermanentName;
+
+	private static long cacheImpermanentExpireAfterWrite;
+
+	private static int cacheImpermanentInitialCapacity;
+
+	private Logger logger = Logger.getLogger(CacheConfig.class.getName());
 
 	/**
 	 * 持久缓存，写入后24小时更新一次
@@ -39,7 +44,16 @@ public class CacheConfig {
 	@Bean
 	public CaffeineCache cachePermanent() {
 		logger.info("cachePermanent *****");
-		return buildCache("cachePermanent", 1000, Duration.ofHours(24));
+		return buildCache(cachePermanentName, cachePermanentInitialCapacity, Duration.ofHours(cachePermanentExpireAfterWrite));
+	}
+
+	/**
+	 * 非持久缓存，短时间保存，会在某个时间点之后过期
+	 */
+	@Bean
+	public CaffeineCache cacheImpermanent() {
+		logger.info("cacheImpermanent *****");
+		return buildCache(cacheImpermanentName, cacheImpermanentInitialCapacity, Duration.ofMinutes(cacheImpermanentExpireAfterWrite));
 	}
 
 	/**
@@ -52,5 +66,44 @@ public class CacheConfig {
 	 */
 	private static CaffeineCache buildCache(String name, int initialCapacity, Duration duration) {
 		return new CaffeineCache(name, Caffeine.newBuilder().initialCapacity(initialCapacity).expireAfterWrite(duration).build());
+	}
+
+
+	@Value("${cache.permanent.name}")
+	public void setCachePermanentName(String cachePermanentName) {
+		CacheConfig.cachePermanentName = cachePermanentName;
+	}
+
+	@Value("${cache.permanent.expireAfterWrite}")
+	public void setCachePermanentExpireAfterWrite(long cachePermanentExpireAfterWrite) {
+		CacheConfig.cachePermanentExpireAfterWrite = cachePermanentExpireAfterWrite;
+	}
+
+	@Value("${cache.permanent.initialCapacity}")
+	public void setCachePermanentInitialCapacity(int cachePermanentInitialCapacity) {
+		CacheConfig.cachePermanentInitialCapacity = cachePermanentInitialCapacity;
+	}
+
+	@Value("${cache.impermanent.name}")
+	public void setCacheImpermanentName(String cacheImpermanentName) {
+		CacheConfig.cacheImpermanentName = cacheImpermanentName;
+	}
+
+	@Value("${cache.impermanent.expireAfterWrite}")
+	public void setCacheImpermanentExpireAfterWrite(long cacheImpermanentExpireAfterWrite) {
+		CacheConfig.cacheImpermanentExpireAfterWrite = cacheImpermanentExpireAfterWrite;
+	}
+
+	@Value("${cache.impermanent.initialCapacity}")
+	public void setCacheImpermanentInitialCapacity(int cacheImpermanentInitialCapacity) {
+		CacheConfig.cacheImpermanentInitialCapacity = cacheImpermanentInitialCapacity;
+	}
+
+	public static String getCachePermanentName() {
+		return cachePermanentName;
+	}
+
+	public static String getCacheImpermanentName() {
+		return cacheImpermanentName;
 	}
 }
