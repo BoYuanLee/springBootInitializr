@@ -107,6 +107,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin().loginPage("/login").failureUrl("/login?error").permitAll()
 				.and()
 				.logout().permitAll();*/
+		//.and().exceptionHandling().accessDeniedPage()
 		http.authorizeRequests().requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll().anyRequest().authenticated().anyRequest().hasRole("abc")
 				.and().formLogin().loginPage("/login").permitAll().failureUrl("/login?error")
 				.and().logout().permitAll().and().apply(smsCodeAuthenticationConfiger);
